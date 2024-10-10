@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "IconMingcuteMinimizeLine": true,
+    "IconMingcuteCloseLine": true,
+    "IconMingcuteRestoreLine": true,
+    "IconMingcuteSquareLine": true,
+    "IconMaterialSymbolsDarkMode": true,
+    "IconMaterialSymbolsSunny": true
+  }
+}

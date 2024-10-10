@@ -1,0 +1,92 @@
+{
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "teacherAI",
+    "version": "1.0.1"
+  },
+  "tauri": {
+    "macOSPrivateApi": true,
+    "systemTray": {
+      "iconPath": "icons/32x32.png"
+    },
+    "allowlist": {
+      "all": true,
+      "fs": {
+        "scope": ["$HOME/.teacherAI/*", "$HOME/.teacherAI", "$HOME/*"]
+      },
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": ["https://aip.baidubce.com/*","https://localhost/*","https://tauri.localhost/*","http://localhost:1420/*"]
+      },
+      "shell": {
+        "scope": [
+          {
+            "name": "screencapture",
+            "cmd": "screencapture",
+            "args": true
+          }
+        ]
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "top.qiuqfang.teacherAI",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": ""
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "title": "teacherAI",
+        "label": "customization",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,     
+        "decorations": false,
+        "transparent": true,
+        "center": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      }
+    ]
+  }
+}
