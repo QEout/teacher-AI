@@ -25,3 +25,13 @@ pub fn capture_region(x: f32, y: f32, width: f32, height: f32, file_name: String
         .unwrap();
     return buffer;
 }
+
+#[tauri::command]
+pub fn clear_screenshot_dir() {
+    screenshot::clear_screenshot_dir();
+}
+
+#[tauri::command]
+pub fn get_screenshot_dir() -> String {
+    return screenshot::get_screenshot_dir();
+}

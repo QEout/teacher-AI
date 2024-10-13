@@ -31,6 +31,8 @@ fn main() {
     // 前端跟后端通信
     .invoke_handler(tauri::generate_handler![
         invokes::capture_full,
+        invokes::clear_screenshot_dir,
+        invokes::get_screenshot_dir,
         invokes::capture_region
     ])
     .build(tauri::generate_context!())

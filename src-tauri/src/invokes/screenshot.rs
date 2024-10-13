@@ -1,7 +1,11 @@
 use std::fs;
-
 use screenshots::Screen;
-use tauri::{api::path::home_dir, PhysicalPosition};
+use tauri::{
+    api::{path::home_dir, shell::open},
+    PhysicalPosition,
+};
+
+use crate::setup;
 
 // 截屏
 pub fn capture_full(position: PhysicalPosition<i32>, file_name: String) -> Vec<u8> {
@@ -29,4 +33,19 @@ pub fn capture_region(x: i32, y: i32, width: u32, height: u32, file_name: String
     println!("{}", path);
     fs::write(path, buffer.clone()).unwrap();
     return buffer.to_vec();
+}
+
+// 获取截屏文件夹路径
+pub fn get_screenshot_dir() -> String {
+    let home_path = home_dir().unwrap();
+    let path = format!("{}/.teacherAI", home_path.display());
+    return path;
+}
+
+// 清除截屏文件夹里的文件，但不删除文件夹
+pub fn clear_screenshot_dir() {
+    let home_path = home_dir().unwrap();
+    let path = format!("{}/.teacherAI", home_path.display());
+    fs::remove_dir_all(path).unwrap();
+    setup::create_dir();
 }
