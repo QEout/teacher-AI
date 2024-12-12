@@ -38,7 +38,7 @@ export const GET_HANDLER_FN = (osType: OsType) => {
         // 获取截屏窗口的位置，生成截取全屏的图片
         const factor = await appWindow?.scaleFactor();
         const innerPosition = await appWindow?.innerPosition();
-        const position = innerPosition?.toLogical(factor as number);
+        const position = innerPosition?.toLogical(parseInt(factor as any));
         console.log(position);
         const fileName = `${Date.now()}_${window.crypto.randomUUID()}`;
 

@@ -3856,6 +3856,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "window-shadows",
+ "windows 0.48.0",
 ]
 
 [[package]]
